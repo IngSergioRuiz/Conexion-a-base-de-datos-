@@ -1,0 +1,19 @@
+# Importar librerias
+from pymongo import MongoClient
+
+# Conectarse al servidor de Mongo
+# Si tiene autenticacion ('host', port=27017, username='', password = '')
+client = MongoClient('localhost')
+
+# Crear una base de datos y almacenarlos en una variable
+db = client['cliente']
+
+# Crear una nueva coleccion
+fact = db['facturas']
+
+# Encontrar datos en un documento
+for docu in fact.find({'estado':"primerrecordatorio"}):
+    a = (docu)
+    state = (a["estado"])
+    name = (a["correo"])
+    print(state + " = " + name)
